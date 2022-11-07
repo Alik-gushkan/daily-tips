@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daily Quotes</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .header {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: rgba(0, 0, 0, 0.6);
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+
+    .header::before {
+        z-index: -1;
+        display: block;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 110%;
+        height: 100%;
+        border-radius: 0 5vmax 5vmax 0;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .header img {
+        max-width:  150px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background-color: #3e8e41;
+    }
+    button:active {
+        background-color: #3e8e41;
+        transform: translateY(4px);
+    }
+body {
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.wrapper {
+    max-width: 500px;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:  2rem;
+    padding: 4rem;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:  2rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+    .container p:first-of-type {
+    position: relative;
+}
+
+/* quote around first paragraph */
+    .container p:first-of-type::before {
+        content: "\201C";
+        position: absolute;
+        top: 1rem;
+        left: -2rem;
+
+    }
+    .container p:first-of-type::after {
+        content: "\201D";
+        position: absolute;
+        right: -2rem;
+        bottom: -1rem;
+    }
+
+    .container p::before, .container p::after {
+        font-size: 5rem;
+        color: #fff;
+        line-height: 0;
+    }
+
+/* font montserrat*/
+</style>
+<body>
+<div class="header">
+    <a href="https://asix.co.il/">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU8AAABlCAMAAAD6U5EkAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABFUExURUdwTDg3QTg2Qjg4QDg2QTg2Qjg3Qjg1QUI/RDc2Qjs1Rj01SDg3QTg3Qjc3Qjg3Qzc2Qzg2QXseonogonognzg3Qnsfojh2BmQAAAAVdFJOUwC/nx9/X9w8EO9Aj99gb8GvT7dlIE0x1iQAAAdJSURBVHja7V3tkqM4DMTYgDGGhWSd93/U+6jaKzIT5JYsA1N1/psaYhq1uiWZTNP8vy5YzhBrYV3Kh9m1q5Gsbn+dRXSJ6fgjC21/oK6+oSDERKwexnJYVvJKmeX212pFl2inw48MdAs9cfHoQRxmepMBukiYxlS2NPD0x5tAostRF4fDc6U3OSGPxKTipYEnERtjPrzsSF4bXDazyfxGQkzpJng2piAuqC+NttGhe0pdRoLWlO6DZ5AnrrkABFSN8qncxnQnPBuxJPmowXbqgf5Z/gw4tfAkJGkRixHOdmTn7gw4tfBslmMlsFIZYZhwAJCx6GmcjSchSavQeuIePK9GZCaf0w3xFElSR10XZ3tj8H3Kgvt8PAlJOqxxyLzlcDgttM8jC6oZnop4EpLkJNaT0b9YsI0u9cNTEU/qriw/rBhsRxExUqt1DZ5EFjNsGBhsxxEJlcVdGc/Ao9qi0VZibdtVp7sqnsTff9ACsg+yMeD0cI/tkwUd0n3xJO5sYkVVy4CTo89BrGWX4EltLjBQiBwxahhdS8Pum16LJ1HvREba6jhwWs5ePatC++cJuI61hjeh3H9y/Ni/fEXAspGD+yAsthN1BKRIZPJdWUSRqmYQjR3e+iJWje08ff5GeC9sSZ2FJ6HaBsxavNku044Hxp+rwinEkyLyBolRr7VNyGcEnYq3Hp4E//4z6WQfhMd2yxTPr0Z4lk9qTsIz5INj0iMZuzm0oX+vHJ5iPCk/GPJixNxlz8XToHZ+vQueWUnSYzub7t8sqDtJjQrwpCRpyVR4rqmqRhwffAWer90KyAz4bzmgxIjVViJDPY5YU+S+eL4gSVrJkNqYe9yOayyD0evGeD4hSZrUCk2yLAgzZkFvjOfLY71NrUKTUqNI9A7fLKhjdBjPxvPpsTOIKm0l2jySZ9QWCM/1cjxfv7FjSVpsJ8xnoJK4gfAcr8fzUTI1ZLOdpDs5LBiY7Yar8Nx5poZ91ndR3GFLf+ygiQLbvOnj+ZJXLj1/h5EOwIBQmex0+cvxfDZSSeJ3wnOtDILwActLfXc1njvPxJMkgdtbc1anRRQp094zk8usZd6CrYbnhBQvKs0xIqEMudjbWdDSF2T+hHLb2Rp47jwTR5IEc685n4qRQ9OKx0NMVwHPh+TohaS2i/mrIaf6VY8vxU4dz71nQke5EmcSgGBHzviqnv6kXLQUzxf/ZNGmKpc9MlyfQEHiAzpo4/nkTndaif2AXiiZAEWKyoAevX8hxnPnmSBJipJDGDOkbQjhXdKOUK+M567PhJTxItNssEILOF1hR21AV2U8955pqsN2Cz6eCZjLGW08ueegs3g+GJIkYjtFUgu6AMe3dUUBqoNnNkBlY4WIztdHoCRTD9CPb+bo8D0rn6KuWICzsQNYOahn0EUVzwd2PwVzmhauXAPyxcsZhFfxS1aavclFHNo0eGYYC8ddFOEr+XmoOuYzfmaYLwexUhtQW6XeBOujSc98fr+RgMXyplsmdXp47sITbSkHNfNpOFbgDXyr+qLHVKNfB7OIyfiWFRcO9WpzrCpI5f1kW/I4RebzU96yuGzoIRq18Hxgaa6E8YFFd+B87z6NarWXlfB8/OaKEX9+xKM7SfgPtLTzqmHvrfq82Faab1JZxDP/4OAnG4alNeMt8GQU7p9nkkXmc2XbK+pQis2viZHAJHg+5edDfpUfAkvx809ejsyEq9Hm2pTPg/HHCK6c7lqtSgU8Ow08vUyM6LkLrkZKxvs2eD6kYsThnvL4bLwxnr4wipATi1tKNyJ8VTyfpUkOYfyqjae5LZ4YKU3RvdmkvvxN8XxCh34NWYUuBeZTutyN8DwIIrJhQc27s4yP+nj2t8ezpYPByRmvP9rlVGYX4bnl2h69mPFtDTynm+OZbU8OYo2PNfAc/a3xdPlImISMn1OVJX/rYK2PpwXGGuRcaRHN4a6xoLE+nlC3N4gYb1OlJSU868dcZHgSX9GCZc56Mt3FFnQb6+NJ/FrQPu685McqY/o569+b9fveM5Fr35vU2OvkXzLKwhfc8IPgTAX2rhWdNDBsxrc/CM5eB88VH1CRx6wD7w0ETKHHE/FcVfCcOSmf/M8dnqdGXZn5rqVwhXgSfZDIG6x9qgFNwoP/XLt1SLBCPCfeDQ+strmVOKxTyoHjKUoZnpbbcpg4jHflBeNycvosxDOy0mGu7Jxw84ke1vGn4bkp4Dnz4yfgjA+YwbgH4WNTjichRq1ouvYe1C3XXZ1asB60dErwbLFC8wsDR5DxPpXTnfOfFMrC05bjaflsz0pEwCKL0V8/p8TqmnI84RfWGCltx/hi83liC6BtyvFcpLdrIcbbbKkMrvFEthfgaYEf85BUgQHYGGtaMZ0JpxzPtkAsekBq1H5xOZwJpxjPreRuh3xfgToExhz+VLagk28U8IxF2ktycFCle90m09gOGnaiddxCk1F2/so1hpiztGo157guXseemdLgCTTj/wLpDpCA9K1wVAAAAABJRU5ErkJggg==" alt="">
+    </a>
+    <h1>
+        API, Local Storage Demo
+    </h1>
+</div>
+
+<div class="wrapper">
+    <div class="container">
+
+    </div>
+    <button>
+        Get a Quote
+    </button>
+</div>
+
+<script>
+    const unsplashUrl = 'https://source.unsplash.com/random/1920x1080?nature';
+    const api_url = "https://api.quotable.io/random";
+    const button = document.querySelector('button');
+    const body = document.querySelector('body');
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (localStorage.length === 0) {
+            getQuote();
+            getBackgroundImage();
+        } else {
+            const quote = localStorage.getItem('quote');
+            const author = localStorage.getItem('author');
+            const image = localStorage.getItem('image');
+            setData(quote, author, image);
+        }
+    });
+
+
+    // Event Listener
+    button.addEventListener('click', () => {
+        localStorage.clear();
+        getQuote();
+        getBackgroundImage();
+    });
+
+
+    async function getQuote() {
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const quote = document.querySelector('.container');
+        localStorage.setItem('quote', data.content);
+        localStorage.setItem('author', data.author);
+        return quote.innerHTML = `<p>${data.content}</p>
+            <p>${data.author}</p>`;
+
+    }
+
+    async function getBackgroundImage() {
+
+        const response = await fetch(unsplashUrl);
+        const image = response.url;
+        localStorage.setItem('image', image);
+        return body.style.backgroundImage = `url(${image})`;
+    }
+
+        function setData(quote, author, image) {
+            const quoteContainer = document.querySelector('.container');
+            quoteContainer.innerHTML = `<p>${quote}</p>
+            <p>${author}</p>`;
+            body.style.backgroundImage = `url(${image})`;
+        }
+
+
+</script>
+</body>
+</html>
