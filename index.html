@@ -13,6 +13,19 @@
     * {
         margin: 0;
         padding: 0;
+        list-style: none;
+        outline: none;
+        border: none;
+        vertical-align: top;
+        text-decoration: none;
+        text-rendering: optimizeLegibility;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        scroll-behavior: smooth;
+        overscroll-behavior: none;
+    }
+
+    *::before, *::after {
         box-sizing: border-box;
     }
 
@@ -79,7 +92,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
+        overflow-x: hidden;
     }
     .wrapper {
         width: 80%;
